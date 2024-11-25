@@ -17,6 +17,11 @@ public class TransactionControllers {
     @Autowired
     private TransImplemets transImplemets;
 
+    @GetMapping
+    public ResponseEntity<String> verifTransaction() {
+        return new ResponseEntity<>("Success transaction config",HttpStatus.OK);
+    }
+
     @GetMapping("/listTransaction")
     private ResponseEntity<List<Transaction>> getTransactions() {
         return new ResponseEntity<>(transImplemets.getTransactions(), HttpStatus.OK);
