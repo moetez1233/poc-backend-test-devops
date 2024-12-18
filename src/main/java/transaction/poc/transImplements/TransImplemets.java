@@ -7,5 +7,6 @@ import java.util.List;
 public interface TransImplemets {
 List<Transaction> getTransactions();
 Transaction addTransaction(Transaction transaction);
-    Integer sumInteget(int a ,int b);
+Integer sumInteget(int a ,int b);
+Transaction getTransaction(Integer id);
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import transaction.poc.entities.Transaction;
@@ -25,6 +26,10 @@ public class TransactionControllers {
     @GetMapping("/listTransaction")
     private ResponseEntity<List<Transaction>> getTransactions() {
         return new ResponseEntity<>(transImplemets.getTransactions(), HttpStatus.OK);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Transaction> getTransaction(@PathVariable int id) {
+        return new ResponseEntity<>(transImplemets.getTransaction(id), HttpStatus.OK);
     }
 
 
