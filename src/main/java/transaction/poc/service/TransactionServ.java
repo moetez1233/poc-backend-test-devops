@@ -23,7 +23,8 @@ public class TransactionServ implements TransImplemets {
 
     @Override
     public Transaction addTransaction(Transaction transaction) {
-        return transRepository.save(transaction);
+        Transaction transaction1=transRepository.save(transaction);
+        return transaction1;
     }
 
     @Override

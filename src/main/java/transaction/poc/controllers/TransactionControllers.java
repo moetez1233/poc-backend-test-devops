@@ -3,10 +3,7 @@ package transaction.poc.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import transaction.poc.entities.Transaction;
 import transaction.poc.transImplements.TransImplemets;
 
@@ -30,6 +27,11 @@ public class TransactionControllers {
     @GetMapping("/{id}")
     public ResponseEntity<Transaction> getTransaction(@PathVariable int id) {
         return new ResponseEntity<>(transImplemets.getTransaction(id), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+        return new ResponseEntity<>(transImplemets.addTransaction(transaction), HttpStatus.CREATED);
     }
 
 
