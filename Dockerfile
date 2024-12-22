@@ -1,4 +1,20 @@
-FROM openjdk:17-alpine
+# Start with a base image containing Java runtime
+FROM openjdk:17-jdk-alpine
+
+# Add Maintainer Info
+LABEL maintainer="gaiamac169@gmail.com"
+
+# Add a volume pointing to /tmp
+VOLUME /tmp
+
+# Make port 9094 available to the world outside this container
 EXPOSE 9094
-ADD target/poc-backend-test-devops.jar poc-backend-test-devops.jar
-ENTRYPOINT ["java","-jar","/poc-backend-test-devops.jar"]
+
+# The application's jar file
+ARG JAR_FILE=target/poc-backend-test-devops.jar
+
+# Add the application's jar to the container
+ADD ${JAR_FILE} app.jar
+
+# Run the jar file
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
