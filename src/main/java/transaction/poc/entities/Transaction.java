@@ -20,7 +20,7 @@ public class Transaction {
     private String name;
     @Email(message = "email invalid ")
     private String email;
-    @Pattern(regexp = "^9\\d{7}$\n",message = "numéro téléphone invalid il doit étre composé de 8 chiffres et commence par 9")
+    @Pattern(regexp = "^9\\d{7}$", message = "numéro téléphone invalid il doit être composé de 9 chiffres et commence par 9")
     private String phone;
     private String accountNumber;
     private String description;
